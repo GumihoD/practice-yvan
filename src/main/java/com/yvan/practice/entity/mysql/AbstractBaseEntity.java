@@ -4,16 +4,17 @@ import com.fasterxml.jackson.annotation.JsonIgnoreProperties;
 import org.springframework.data.annotation.CreatedDate;
 import org.springframework.data.annotation.LastModifiedDate;
 import org.springframework.data.jpa.domain.AbstractPersistable;
+import org.springframework.data.jpa.domain.support.AuditingEntityListener;
 
-import javax.persistence.Column;
-import javax.persistence.Temporal;
-import javax.persistence.TemporalType;
+import javax.persistence.*;
 import java.io.Serializable;
 import java.util.Date;
 
 /**
  * Created by yvan on 16/7/20.
  */
+@MappedSuperclass
+@EntityListeners({AuditingEntityListener.class})
 @JsonIgnoreProperties({"new"})
 public abstract class AbstractBaseEntity<PK extends Serializable> extends AbstractPersistable<PK> {
 
