@@ -1,16 +1,16 @@
-package com.yvan.practice.test.demo;
+package com.yvan.practice.test.forkjoin;
 
 import java.util.concurrent.RecursiveTask;
 
 /**
  * Created by yvan on 16/8/4.
  */
-public class Demo extends RecursiveTask<Integer> {
+public class ForkJoinDemo extends RecursiveTask<Integer> {
 
     private int start;
     private int end;
 
-    public Demo(int start, int end) {
+    public ForkJoinDemo(int start, int end) {
         this.start = start;
         this.end = end;
     }
@@ -24,8 +24,8 @@ public class Demo extends RecursiveTask<Integer> {
             }
         } else {//间隔有100则拆分多个任务计算
             int middle = (start + end) / 2;
-            Demo left = new Demo(start, middle);
-            Demo right = new Demo(middle + 1, end);
+            ForkJoinDemo left = new ForkJoinDemo(start, middle);
+            ForkJoinDemo right = new ForkJoinDemo(middle + 1, end);
             left.fork();
             right.fork();
 
