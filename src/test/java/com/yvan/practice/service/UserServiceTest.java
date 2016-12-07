@@ -40,7 +40,7 @@ public class UserServiceTest extends PracticeYvanApplicationTests {
 
     @Test
     public void getUserById() throws Exception {
-        userService.findone(1L);
+        userService.getUser(1L);
     }
 
     @Test
@@ -51,7 +51,7 @@ public class UserServiceTest extends PracticeYvanApplicationTests {
     @Test
     public void serializeUser() throws Exception {
         User user;
-        user = userService.findone(1L);
+        user = userService.getUser(1L);
         userService.serializeUser(user);
     }
 

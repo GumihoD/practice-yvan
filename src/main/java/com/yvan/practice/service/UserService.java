@@ -34,8 +34,8 @@ public class UserService {
     @Autowired
     UserRepostory userRepostory;
 
-//    @Cacheable(cacheNames = "userCache", key = "'currentUser'")
-    public User findone(Long id) {
+    @Cacheable(cacheNames = "userCache", key = "'currentUser'")
+    public User getUser(Long id) {
         try {
             for (int i = 0; i < 10; i++) {
                 userRepostory.findOne(id);

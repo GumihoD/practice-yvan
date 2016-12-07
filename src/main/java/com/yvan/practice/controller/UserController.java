@@ -12,12 +12,10 @@ import org.slf4j.LoggerFactory;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.web.bind.annotation.*;
 import org.springframework.web.servlet.ModelAndView;
-import org.springframework.web.servlet.ModelAndViewDefiningException;
 
 import java.io.IOException;
 import java.util.ArrayList;
 import java.util.List;
-import java.util.Locale;
 
 /**
  * Created by yvan on 16/7/20.
@@ -39,7 +37,7 @@ public class UserController {
     @ResponseBody
     public Result user(@PathVariable("id") Long id) {
         logger.info("test user GET");
-        User user = userService.findone(id);
+        User user = userService.getUser(id);
         ModelAndView modelAndView = new ModelAndView();
         modelAndView.setViewName("");
         modelAndView.addObject(user);

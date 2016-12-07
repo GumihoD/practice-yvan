@@ -18,6 +18,6 @@ public class H2test extends PracticeYvanApplicationTests {
 
     @Test
     public void findUser() {
-        Assert.assertNotNull(userService.findone(1L));
+        Assert.assertNotNull(userService.getUser(1L));
     }
 }

@@ -1,10 +1,8 @@
 package com.yvan.practice.utils;
 
 import com.fasterxml.jackson.databind.JsonNode;
-import com.sun.tools.doclets.formats.html.SourceToHTMLConverter;
 
 import java.lang.reflect.Field;
-import java.util.*;
 
 /**
  * Created by yvan on 16/7/20.
@@ -30,22 +28,22 @@ public class CommonUtils {
         return obj;
     }
 
-    public static void main(String[] args) {
-        HashMap map = new HashMap();
-        Stack stack = new Stack();
-        stack.push(100);
-        stack.push(200);
-        System.out.println(stack.pop());
-
-        Vector vector = new Vector();
-        vector.add("1");
-        vector.add(1);
-        vector.add(1L);
-        vector.iterator();
-        System.out.println(vector.get(1));
-        System.out.println(vector.get(2));
-        System.out.println(vector.get(0));
-
-    }
+//    public static void main(String[] args) {
+//        HashMap map = new HashMap();
+//        Stack stack = new Stack();
+//        stack.push(100);
+//        stack.push(200);
+//        System.out.println(stack.pop());
+//
+//        Vector vector = new Vector();
+//        vector.add("1");
+//        vector.add(1);
+//        vector.add(1L);
+//        vector.iterator();
+//        System.out.println(vector.get(1));
+//        System.out.println(vector.get(2));
+//        System.out.println(vector.get(0));
+//
+//    }
 
 }

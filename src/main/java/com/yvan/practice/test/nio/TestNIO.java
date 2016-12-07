@@ -12,16 +12,16 @@ import java.nio.channels.FileChannel;
  */
 public class TestNIO {
 
-    public static void main(String[] args) {
-        try {
-            // intBufferDemo();
-//            wirteToBuffer();
-            readFromBuffer();
-            proptiesView();
-        } catch (IOException e) {
-            e.printStackTrace();
-        }
-    }
+//    public static void main(String[] args) {
+//        try {
+//            // intBufferDemo();
+////            wirteToBuffer();
+//            readFromBuffer();
+//            proptiesView();
+//        } catch (IOException e) {
+//            e.printStackTrace();
+//        }
+//    }
 
     public static void intBufferDemo() {
         IntBuffer buffer = IntBuffer.allocate(8);
