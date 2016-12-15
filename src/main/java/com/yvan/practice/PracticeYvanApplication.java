@@ -10,6 +10,7 @@ import com.fasterxml.jackson.datatype.joda.JodaModule;
 import org.springframework.beans.factory.annotation.Value;
 import org.springframework.boot.SpringApplication;
 import org.springframework.boot.autoconfigure.SpringBootApplication;
+<<<<<<< HEAD
 import org.springframework.boot.builder.SpringApplicationBuilder;
 import org.springframework.boot.context.web.SpringBootServletInitializer;
 import org.springframework.cache.CacheManager;
@@ -113,4 +114,14 @@ public class PracticeYvanApplication extends SpringBootServletInitializer {
     public static void main(String[] args) {
         SpringApplication.run(PracticeYvanApplication.class, args);
     }
+=======
+import org.springframework.context.annotation.ComponentScan;
+
+@ComponentScan("${server.basePackages}")
+@SpringBootApplication
+public class PracticeYvanApplication {
+	public static void main(String[] args) {
+		SpringApplication.run(PracticeYvanApplication.class, args);
+	}
+>>>>>>> feature/first
 }

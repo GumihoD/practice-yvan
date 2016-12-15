@@ -117,6 +117,7 @@ local.properties
 
 # User-specific stuff:
 .idea/*
+<<<<<<< HEAD
 .idea/workspace.xml
 .idea/tasks.xml
 .idea/dictionaries
@@ -137,6 +138,8 @@ local.properties
 
 # Mongo Explorer plugin:
 .idea/mongoSettings.xml
+=======
+>>>>>>> feature/first
 
 ## File-based project format:
 *.iws
@@ -157,4 +160,5 @@ com_crashlytics_export_strings.xml
 crashlytics.properties
 crashlytics-build.properties
 fabric.properties
+*.iml
 
