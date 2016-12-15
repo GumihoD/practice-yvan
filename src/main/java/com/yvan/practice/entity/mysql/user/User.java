@@ -2,9 +2,9 @@ package com.yvan.practice.entity.mysql.user;
 
 import com.yvan.practice.entity.mysql.AbstractBaseEntity;
 
-import javax.persistence.Entity;
-import javax.persistence.Table;
+import javax.persistence.*;
 import java.util.Date;
+import java.util.Set;
 
 /**
  * Created by yvan on 16/7/20.
@@ -18,6 +18,17 @@ public class User extends AbstractBaseEntity<Long>{
     private String email;
     private Date birthday;
     private Gender gender;
+
+    @OneToMany(cascade = CascadeType.ALL)
+    private Set<Role> roleSet;
+
+    public Set<Role> getRoleSet() {
+        return roleSet;
+    }
+
+    public void setRoleSet(Set<Role> roleSet) {
+        this.roleSet = roleSet;
+    }
 
     public String getUsername() {
         return username;

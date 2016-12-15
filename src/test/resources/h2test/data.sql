@@ -1,6 +1,7 @@
 -- noinspection SqlNoDataSourceInspectionForFile
 -- noinspection SqlDialectInspectionForFile
-SET MODULE ;
+SET MODULE Mysql;
+
 CREATE TABLE `user` (
   `id` bigint(20) NOT NULL AUTO_INCREMENT,
   `birthday` datetime DEFAULT NULL,

@@ -1,8 +1,5 @@
 package com.yvan.practice.utils;
 
-import com.fasterxml.jackson.core.JsonProcessingException;
-import com.fasterxml.jackson.databind.ObjectMapper;
-import com.yvan.practice.entity.mysql.user.User;
 import org.apache.commons.beanutils.BeanUtilsBean;
 import org.apache.commons.beanutils.DynaBean;
 import org.apache.commons.beanutils.DynaProperty;
@@ -13,7 +10,10 @@ import org.springframework.beans.BeanWrapperImpl;
 
 import java.beans.PropertyDescriptor;
 import java.lang.reflect.InvocationTargetException;
-import java.util.*;
+import java.util.HashSet;
+import java.util.Iterator;
+import java.util.Map;
+import java.util.Set;
 
 /**
  * Created by yvan on 2016/11/14.
@@ -116,16 +116,4 @@ public class BeanUtils extends BeanUtilsBean {
         }
     }
 
-//    public static void main(String[] args) throws JsonProcessingException {
-//        User source = new User();
-//        source.setUsername("test");
-//        source.setPassword("6666666");
-//        User target = new User();
-//        target.setUsername("1");
-//        target.setPassword("2");
-//        target.setBirthday(new Date());
-//        target.setEmail(".....");
-////        BeanUtils.copyProperties(source, target, getNullPropertyNames(source));
-//        System.out.println(new ObjectMapper().writeValueAsString(target));
-//    }
 }

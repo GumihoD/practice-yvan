@@ -19,5 +19,8 @@ public class H2test extends PracticeYvanApplicationTests {
     @Test
     public void findUser() {
         Assert.assertNotNull(userService.getUser(1L));
+        Assert.assertNotNull(userService.getUser(2L));
+        Assert.assertNotNull(userService.getUser(3L));
     }
+
 }

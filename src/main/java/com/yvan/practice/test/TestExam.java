@@ -15,13 +15,6 @@ public class TestExam {
 //        new TestExam().test2();
 //    }
 
-
-    public void tset0() {
-        //四位密码
-        //5次 6087 5173 1358 3825 2531
-        //
-
-    }
     public void test1() {
         int i, j, m;
         Scanner scanner = new Scanner(System.in);
@@ -79,4 +72,6 @@ public class TestExam {
         }
         return x;
     }
+
+
 }

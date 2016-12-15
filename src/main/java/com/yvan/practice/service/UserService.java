@@ -34,7 +34,12 @@ public class UserService {
     @Autowired
     UserRepostory userRepostory;
 
-    @Cacheable(cacheNames = "userCache", key = "'currentUser'")
+    /**
+     *
+     * @param id
+     * @return
+     */
+    @Cacheable(cacheNames = "userCache", key = "'practice:currentUser:Id:'+#p0")
     public User getUser(Long id) {
         try {
             for (int i = 0; i < 10; i++) {
@@ -47,7 +52,7 @@ public class UserService {
         return userRepostory.findOne(id);
     }
 
-    @CacheEvict(cacheNames = "userCache", key = "'currentUser'")
+    @CacheEvict(cacheNames = "userCache", allEntries=true )
     public void delCacheUser() {
 
     }

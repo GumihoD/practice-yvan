@@ -79,20 +79,4 @@ public class UserServiceTest extends PracticeYvanApplicationTests {
         }
     }
 
-    @Test
-    public void jsonObjectConversion() throws IOException, InstantiationException, IllegalAccessException {
-        Data data = new Data();
-        Data object;
-        data.setFullName("Hdal0er");
-        data.setMobile("1#23456397863");
-        String json = objectMapper.writeValueAsString(data);
-        logger.info(json);
-        JsonNode dataNode = objectMapper.readTree(json);
-        object = (Data) CommonUtils.transforObject(dataNode, Data.class);
-        logger.info(objectMapper.writeValueAsString(object));
-    }
-
-
-
-
 }
