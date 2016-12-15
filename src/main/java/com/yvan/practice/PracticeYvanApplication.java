@@ -10,7 +10,6 @@ import com.fasterxml.jackson.datatype.joda.JodaModule;
 import org.springframework.beans.factory.annotation.Value;
 import org.springframework.boot.SpringApplication;
 import org.springframework.boot.autoconfigure.SpringBootApplication;
-<<<<<<< HEAD
 import org.springframework.boot.builder.SpringApplicationBuilder;
 import org.springframework.boot.context.web.SpringBootServletInitializer;
 import org.springframework.cache.CacheManager;
@@ -84,14 +83,19 @@ public class PracticeYvanApplication extends SpringBootServletInitializer {
     /**
      * redisTemplate redis模板工具类
      * 须添加连接工厂
+     *
      * @param factory
      * @returns
      */
-    @Bean public RedisTemplate redisTemplate(RedisConnectionFactory factory) { return new StringRedisTemplate(factory); }
+    @Bean
+    public RedisTemplate redisTemplate(RedisConnectionFactory factory) {
+        return new StringRedisTemplate(factory);
+    }
 
     /**
      * 缓存管理
      * 绑定redis 设置指定缓存的存活时间
+     *
      * @param factory
      * @return
      */
@@ -101,7 +105,7 @@ public class PracticeYvanApplication extends SpringBootServletInitializer {
         template.setValueSerializer(new GenericJackson2JsonRedisSerializer());
         RedisCacheManager cacheManager = new RedisCacheManager(template);
         Map expires = new HashMap();
-        expires.put("userCache",currentUserExpire*3600);
+        expires.put("userCache", currentUserExpire * 3600);
         cacheManager.setExpires(expires);
         return cacheManager;
     }
@@ -111,17 +115,8 @@ public class PracticeYvanApplication extends SpringBootServletInitializer {
         return builder.sources(PracticeYvanApplication.class);
     }
 
+
     public static void main(String[] args) {
         SpringApplication.run(PracticeYvanApplication.class, args);
     }
-=======
-import org.springframework.context.annotation.ComponentScan;
-
-@ComponentScan("${server.basePackages}")
-@SpringBootApplication
-public class PracticeYvanApplication {
-	public static void main(String[] args) {
-		SpringApplication.run(PracticeYvanApplication.class, args);
-	}
->>>>>>> feature/first
 }
