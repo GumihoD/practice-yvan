@@ -6,6 +6,16 @@ package com.yvan.practice.dto;
 public class Data {
     private String fullName;
     private String mobile;
+    private int temp_id;
+
+
+    public int getTemp_id() {
+        return temp_id;
+    }
+
+    public void setTemp_id(int temp_id) {
+        this.temp_id = temp_id;
+    }
 
     public String getFullName() {
         return fullName;
