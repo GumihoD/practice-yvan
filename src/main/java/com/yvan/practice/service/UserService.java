@@ -78,5 +78,7 @@ public class UserService {
 
     }
 
-
+    public User findByUserName(String userName) {
+        return userRepostory.findByUsername(userName);
+    }
 }

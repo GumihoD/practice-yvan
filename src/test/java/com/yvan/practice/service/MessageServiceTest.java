@@ -1,6 +1,7 @@
 package com.yvan.practice.service;
 
 import com.yvan.practice.PracticeYvanApplicationTests;
+import com.yvan.practice.dto.Data;
 import org.junit.Test;
 import org.springframework.beans.factory.annotation.Autowired;
 
@@ -14,7 +15,7 @@ public class MessageServiceTest extends PracticeYvanApplicationTests {
 
     @Test
     public void sendMsg() throws Exception {
-        messageService.sendMsg("{\"mobile\":\"15601894368\",\"temp_id\":1}\n");
+//        messageService.sendMsg(new Data());
     }
 
 }

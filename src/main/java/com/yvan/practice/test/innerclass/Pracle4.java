@@ -26,6 +26,9 @@ public class Pracle4 {
         }
     }
 
+    /**
+     * 内部类如果是static 那创建内部类的时候将不会建立和外部类的引用
+     */
     public Destination destination(String s) {
         return new PDestination(s);
     }

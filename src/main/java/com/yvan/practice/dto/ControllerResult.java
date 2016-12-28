@@ -55,6 +55,10 @@ public class ControllerResult<RESULTOBJECT> {
         return new ControllerResult().setRet_code(200).setRet_values(ret_values);
     }
 
+    public static <T> ControllerResult<T> defaultNullSuccessResult(String message) {
+        return new ControllerResult().setRet_values("").setMessage(message);
+    }
+
     public static String defaultResultToString(int code, String messages) {
         SimpleFilterProvider provider = new SimpleFilterProvider().setFailOnUnknownId(false);
         provider.addFilter(ControllerResult.class.getName(), SimpleBeanPropertyFilter.serializeAllExcept("ret_values"));
