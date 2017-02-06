@@ -29,6 +29,9 @@ import org.springframework.data.redis.serializer.GenericJackson2JsonRedisSeriali
 import org.springframework.scheduling.annotation.EnableScheduling;
 import org.springframework.transaction.annotation.EnableTransactionManagement;
 import org.springframework.web.client.RestTemplate;
+import org.springframework.web.servlet.view.InternalResourceViewResolver;
+import org.springframework.web.servlet.view.JstlView;
+import org.springframework.web.servlet.view.UrlBasedViewResolver;
 
 import java.io.IOException;
 import java.util.HashMap;
@@ -123,6 +126,13 @@ public class PracticeYvanApplication extends SpringBootServletInitializer {
         return builder.sources(PracticeYvanApplication.class);
     }
 
+//    @Bean
+//    public InternalResourceViewResolver internalResourceViewResolver() {
+//        InternalResourceViewResolver internalResourceViewResolver = new InternalResourceViewResolver();
+//        internalResourceViewResolver.setPrefix("classpath:/resources/templates");
+//        internalResourceViewResolver.setSuffix(".html");
+//        return internalResourceViewResolver;
+//    }
 
     public static void main(String[] args) {
         SpringApplication.run(PracticeYvanApplication.class, args);
