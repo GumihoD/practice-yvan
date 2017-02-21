@@ -7,16 +7,15 @@ import com.fasterxml.jackson.databind.SerializationFeature;
 import com.fasterxml.jackson.databind.SerializerProvider;
 import com.fasterxml.jackson.datatype.hibernate4.Hibernate4Module;
 import com.fasterxml.jackson.datatype.joda.JodaModule;
-import com.yvan.practice.shiro.UserRealm;
 import org.springframework.beans.factory.annotation.Value;
 import org.springframework.boot.SpringApplication;
 import org.springframework.boot.autoconfigure.SpringBootApplication;
 import org.springframework.boot.builder.SpringApplicationBuilder;
 import org.springframework.boot.context.web.SpringBootServletInitializer;
 import org.springframework.boot.web.client.RestTemplateBuilder;
+import org.springframework.boot.web.servlet.ServletComponentScan;
 import org.springframework.cache.CacheManager;
 import org.springframework.cache.annotation.EnableCaching;
-import org.springframework.cache.ehcache.EhCacheCache;
 import org.springframework.context.annotation.Bean;
 import org.springframework.context.annotation.ComponentScan;
 import org.springframework.context.annotation.Primary;
@@ -30,13 +29,12 @@ import org.springframework.scheduling.annotation.EnableScheduling;
 import org.springframework.transaction.annotation.EnableTransactionManagement;
 import org.springframework.web.client.RestTemplate;
 import org.springframework.web.servlet.view.InternalResourceViewResolver;
-import org.springframework.web.servlet.view.JstlView;
-import org.springframework.web.servlet.view.UrlBasedViewResolver;
 
 import java.io.IOException;
 import java.util.HashMap;
 import java.util.Map;
 
+@ServletComponentScan
 @EnableScheduling
 @EnableJpaAuditing
 @EnableCaching
@@ -74,7 +72,17 @@ public class PracticeYvanApplication extends SpringBootServletInitializer {
         hibernateMoudle.disable(Hibernate4Module.Feature.USE_TRANSIENT_ANNOTATION);
         return objectMapper.registerModule(new JodaModule()).registerModule(hibernateMoudle);
     }
-//Jackson2ObjectMapperBuilder
+
+
+    @Bean
+    public InternalResourceViewResolver internalResourceViewResolver() {
+        InternalResourceViewResolver internalResourceViewResolver = new InternalResourceViewResolver();
+        internalResourceViewResolver.setSuffix(".html");
+        return internalResourceViewResolver;
+    }
+
+
+    //Jackson2ObjectMapperBuilder
 //    @Bean
 //    public WebMvcConfigurer webMvcConfigurer() {
 //        return new WebMvcConfigurerAdapter() {
@@ -85,6 +93,18 @@ public class PracticeYvanApplication extends SpringBootServletInitializer {
 //            }
 //        };
 //    }
+//    /**
+//     * 方法二：使用代码注册Servlet（不需要@ServletComponentScan注解）
+//     *
+//     * @return
+//     * @author SHANHY
+//     * @create  2016年1月6日
+//     */
+//    @Bean
+//    public ServletRegistrationBean servletRegistrationBean() {
+//        return new ServletRegistrationBean(new MyServlet(), "/xs/*");// ServletName默认值为首字母小写，即myServlet
+//    }
+
 
 
     /**
@@ -98,6 +118,7 @@ public class PracticeYvanApplication extends SpringBootServletInitializer {
     public RedisTemplate redisTemplate(RedisConnectionFactory factory) {
         return new StringRedisTemplate(factory);
     }
+
     @Bean
     public RestTemplate restTemplate(RestTemplateBuilder restTemplateBuilder) {
         return restTemplateBuilder.build();
@@ -125,14 +146,6 @@ public class PracticeYvanApplication extends SpringBootServletInitializer {
     protected SpringApplicationBuilder configure(SpringApplicationBuilder builder) {
         return builder.sources(PracticeYvanApplication.class);
     }
-
-//    @Bean
-//    public InternalResourceViewResolver internalResourceViewResolver() {
-//        InternalResourceViewResolver internalResourceViewResolver = new InternalResourceViewResolver();
-//        internalResourceViewResolver.setPrefix("classpath:/resources/templates");
-//        internalResourceViewResolver.setSuffix(".html");
-//        return internalResourceViewResolver;
-//    }
 
     public static void main(String[] args) {
         SpringApplication.run(PracticeYvanApplication.class, args);
