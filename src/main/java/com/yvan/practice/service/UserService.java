@@ -48,16 +48,15 @@ public class UserService {
      * @return
      */
     @Cacheable(cacheNames = "userCache", key = "'practice:currentUser:Id:'+#p0")
+//    @Cacheable(cacheNames = "userCache")
     public User getUser(Long id) {
+        User user = userRepostory.findOne(id);
         try {
-            for (int i = 0; i < 10; i++) {
-                userRepostory.findOne(id);
-            }
-            logger.info(objectMapper.writeValueAsString(userRepostory.findOne(id)));
+            logger.info(objectMapper.writeValueAsString(user));
         } catch (JsonProcessingException e) {
             e.printStackTrace();
         }
-        return userRepostory.findOne(id);
+        return user;
     }
 
     @CacheEvict(cacheNames = "userCache", allEntries = true)

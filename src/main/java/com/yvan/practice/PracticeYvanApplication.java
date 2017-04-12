@@ -15,7 +15,6 @@ import org.springframework.boot.context.web.SpringBootServletInitializer;
 import org.springframework.boot.web.client.RestTemplateBuilder;
 import org.springframework.boot.web.servlet.ServletComponentScan;
 import org.springframework.cache.CacheManager;
-import org.springframework.cache.annotation.EnableCaching;
 import org.springframework.context.annotation.Bean;
 import org.springframework.context.annotation.ComponentScan;
 import org.springframework.context.annotation.Primary;
@@ -34,10 +33,9 @@ import java.io.IOException;
 import java.util.HashMap;
 import java.util.Map;
 
-@ServletComponentScan
+@ServletComponentScan(basePackages = {"com.yvan.practice.test.servlet"})
 @EnableScheduling
 @EnableJpaAuditing
-@EnableCaching
 @EnableTransactionManagement
 @ComponentScan("${server.basePackages}")
 @SpringBootApplication
@@ -52,6 +50,7 @@ public class PracticeYvanApplication extends SpringBootServletInitializer {
      */
     @Value("${currentUser.Expire}")
     private Long currentUserExpire;
+
 
     @Bean
     @Primary
@@ -81,6 +80,35 @@ public class PracticeYvanApplication extends SpringBootServletInitializer {
         return internalResourceViewResolver;
     }
 
+    /**
+     * redisTemplate redis模板工具类
+     * 须添加连接工厂
+     *
+     * @param factory
+     * @returns
+     */
+    @Bean
+    public RedisTemplate redisTemplate(RedisConnectionFactory factory) {
+        return new StringRedisTemplate(factory);
+    }
+
+    /**
+     * 缓存管理
+     * 绑定redis 设置指定缓存的存活时间
+     *
+     * @param factory
+     * @return
+     */
+    @Bean
+    public CacheManager cacheManager(RedisConnectionFactory factory) {
+        StringRedisTemplate template = new StringRedisTemplate(factory);
+        template.setValueSerializer(new GenericJackson2JsonRedisSerializer());
+        RedisCacheManager cacheManager = new RedisCacheManager(template);
+        Map expires = new HashMap();
+        expires.put("userCache", currentUserExpire * 3600);
+        cacheManager.setExpires(expires);
+        return cacheManager;
+    }
 
     //Jackson2ObjectMapperBuilder
 //    @Bean
@@ -105,41 +133,9 @@ public class PracticeYvanApplication extends SpringBootServletInitializer {
 //        return new ServletRegistrationBean(new MyServlet(), "/xs/*");// ServletName默认值为首字母小写，即myServlet
 //    }
 
-
-
-    /**
-     * redisTemplate redis模板工具类
-     * 须添加连接工厂
-     *
-     * @param factory
-     * @returns
-     */
-    @Bean
-    public RedisTemplate redisTemplate(RedisConnectionFactory factory) {
-        return new StringRedisTemplate(factory);
-    }
-
     @Bean
     public RestTemplate restTemplate(RestTemplateBuilder restTemplateBuilder) {
         return restTemplateBuilder.build();
-    }
-
-    /**
-     * 缓存管理
-     * 绑定redis 设置指定缓存的存活时间
-     *
-     * @param factory
-     * @return
-     */
-    @Bean
-    public CacheManager cacheManager(RedisConnectionFactory factory) {
-        StringRedisTemplate template = new StringRedisTemplate(factory);
-        template.setValueSerializer(new GenericJackson2JsonRedisSerializer());
-        RedisCacheManager cacheManager = new RedisCacheManager(template);
-        Map expires = new HashMap();
-        expires.put("userCache", currentUserExpire * 3600);
-        cacheManager.setExpires(expires);
-        return cacheManager;
     }
 
     @Override

@@ -94,9 +94,4 @@
 //        return mcc.get(key);
 //    }
 //
-//    public static void main(String[] args) {
-//        MemCachedManager cache = MemCachedManager.getInstance();
-//        cache.add("hello", 234);
-//        System.out.print("get value : " + cache.get("hello"));
-//    }
 //}

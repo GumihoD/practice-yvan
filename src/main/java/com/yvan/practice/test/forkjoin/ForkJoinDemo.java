@@ -3,6 +3,8 @@ package com.yvan.practice.test.forkjoin;
 import java.util.concurrent.RecursiveTask;
 
 /**
+ * Fork/Join框架是Java7提供了的一个用于并行执行任务的框架， 是一个把大任务分割成若干个小任务，
+ * 最终汇总每个小任务结果后得到大任务结果的框架
  * Created by yvan on 16/8/4.
  */
 public class ForkJoinDemo extends RecursiveTask<Integer> {

@@ -52,10 +52,12 @@
             <groupId>org.springframework.boot</groupId>
             <artifactId>spring-boot-starter-redis</artifactId>
         </dependency>
-        <!--<dependency>-->
-            <!--<groupId>org.springframework.boot</groupId>-->
-            <!--<artifactId>spring-boot-devtools</artifactId>-->
-        <!--</dependency>-->
+        <!-- 热部署 适用debug模式 -->
+        <dependency>
+            <groupId>org.springframework</groupId>
+            <artifactId>springloaded</artifactId>
+            <version>1.2.6.RELEASE</version>
+        </dependency>
         <dependency>
             <groupId>org.springframework.boot</groupId>
             <artifactId>spring-boot-starter-web</artifactId>
@@ -152,9 +154,17 @@
             <artifactId>redisson</artifactId>
             <version>3.2.3</version>
         </dependency>
-
+        <!-- 集成ehcache需要的依赖-->
+        <dependency>
+            <groupId>net.sf.ehcache</groupId>
+            <artifactId>ehcache</artifactId>
+        </dependency>
+        <dependency>
+            <groupId>com.google.guava</groupId>
+            <artifactId>guava</artifactId>
+            <version>18.0</version>
+        </dependency>
     </dependencies>
-
 
     <build>
         <plugins>
@@ -174,11 +184,10 @@
                     </execution>
                 </executions>
                 <configuration>
-                    <mainClass>com.yvan.practice.test.hash.DecorateTest</mainClass>
+                    <mainClass>com.yvan.practice.test.multithread.MyThreadPrinter</mainClass>
                 </configuration>
             </plugin>
         </plugins>
     </build>
-
 
 </project>

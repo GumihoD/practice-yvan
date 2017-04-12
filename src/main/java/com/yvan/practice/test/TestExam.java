@@ -11,10 +11,6 @@ import java.util.Scanner;
  */
 public class TestExam {
 
-//    public static void main(String[] args) {
-//        new TestExam().test2();
-//    }
-
     public void test1() {
         int i, j, m;
         Scanner scanner = new Scanner(System.in);
