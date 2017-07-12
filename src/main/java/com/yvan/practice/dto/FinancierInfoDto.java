@@ -14,6 +14,27 @@ public class FinancierInfoDto {
     /** 融资人账户余额 **/
     private BigDecimal balance;
 
+    /** 集齐标识 **/
+    private Boolean fullStatus;
+
+    private BigDecimal currentBalance;
+
+    public BigDecimal getCurrentBalance() {
+        return currentBalance;
+    }
+
+    public void setCurrentBalance(BigDecimal currentBalance) {
+        this.currentBalance = currentBalance;
+    }
+
+    public Boolean getFullStatus() {
+        return fullStatus;
+    }
+
+    public void setFullStatus(Boolean fullStatus) {
+        this.fullStatus = fullStatus;
+    }
+
     public Long getUserId() {
         return userId;
     }
