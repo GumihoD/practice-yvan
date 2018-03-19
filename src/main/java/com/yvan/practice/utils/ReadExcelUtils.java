@@ -146,12 +146,12 @@ public class ReadExcelUtils {
         return cellvalue;
     }
 
-    public static void main(String[] args) {
-        sheetNO++;
-        toSql(8326,"海赚专享版105",1001232,"JX","2017-07-17 07:30:00",33);
-        sheetNO++;
-        toSql(8327,"海赚专享版111",1000780,"JX","2017-07-17 07:30:00",33);
-    }
+//    public static void main(String[] args) {
+//        sheetNO++;
+//        toSql(8326,"海赚专享版105",1001232,"JX","2017-07-17 07:30:00",33);
+//        sheetNO++;
+//        toSql(8327,"海赚专享版111",1000780,"JX","2017-07-17 07:30:00",33);
+//    }
 
     public static void toSql(int bidId, String title, int amount, String fundCode, String beginTime, int delay) {
         try {
