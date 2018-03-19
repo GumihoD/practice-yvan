@@ -26,6 +26,8 @@ public class ReadExcelUtils {
     private Sheet sheet;
     private Row row;
 
+    private static Integer sheetNO = 0;
+
     public ReadExcelUtils(String filepath) {
         if (filepath == null) {
             return;
@@ -82,7 +84,7 @@ public class ReadExcelUtils {
         }
         Map<Integer, Map<Integer, Object>> content = new HashMap<Integer, Map<Integer, Object>>();
 
-        sheet = wb.getSheetAt(1);
+        sheet = wb.getSheetAt(sheetNO);
         // 得到总行数
         int rowNum = sheet.getLastRowNum();
         row = sheet.getRow(0);
@@ -145,12 +147,15 @@ public class ReadExcelUtils {
     }
 
     public static void main(String[] args) {
-        toSql(8046,"title",10000,"JX","2017-06-30 12:00:00",52);
+        sheetNO++;
+        toSql(8326,"海赚专享版105",1001232,"JX","2017-07-17 07:30:00",33);
+        sheetNO++;
+        toSql(8327,"海赚专享版111",1000780,"JX","2017-07-17 07:30:00",33);
     }
 
     public static void toSql(int bidId, String title, int amount, String fundCode, String beginTime, int delay) {
         try {
-            String filepath = "/Users/yvan/Documents/HRY/5.xlsx";
+            String filepath = "/Users/yvan/Documents/HRY/6.xlsx";
             ReadExcelUtils excelReader = new ReadExcelUtils(filepath);
             // 对读取Excel表格标题测试
 //          String[] title = excelReader.readExcelTitle();
