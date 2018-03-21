@@ -1,5 +1,6 @@
 package com.yvan.practice.controller;
 
+import com.wordnik.swagger.annotations.Api;
 import com.yvan.practice.dto.ControllerResult;
 import com.yvan.practice.entity.mysql.user.User;
 import com.yvan.practice.service.UserService;
@@ -12,6 +13,7 @@ import org.springframework.web.servlet.ModelAndView;
  */
 @RestController
 @RequestMapping("cache")
+@Api(value = "cache")
 public class CacheController {
 
     @Autowired

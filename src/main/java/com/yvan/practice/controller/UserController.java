@@ -21,7 +21,7 @@ import javax.ws.rs.WebApplicationException;
  * Created by yvan on 16/7/20.
  */
 @RestController
-@RequestMapping("user")
+@RequestMapping("/user")
 public class UserController {
 
     Logger logger = LoggerFactory.getLogger(UserController.class);

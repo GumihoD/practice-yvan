@@ -27,6 +27,9 @@ import org.springframework.data.redis.serializer.GenericJackson2JsonRedisSeriali
 import org.springframework.scheduling.annotation.EnableScheduling;
 import org.springframework.transaction.annotation.EnableTransactionManagement;
 import org.springframework.web.client.RestTemplate;
+import org.springframework.web.servlet.config.annotation.CorsRegistry;
+import org.springframework.web.servlet.config.annotation.WebMvcConfigurer;
+import org.springframework.web.servlet.config.annotation.WebMvcConfigurerAdapter;
 import org.springframework.web.servlet.view.InternalResourceViewResolver;
 
 import java.io.IOException;
@@ -111,16 +114,16 @@ public class PracticeYvanApplication extends SpringBootServletInitializer {
     }
 
     //Jackson2ObjectMapperBuilder
-//    @Bean
-//    public WebMvcConfigurer webMvcConfigurer() {
-//        return new WebMvcConfigurerAdapter() {
-//            @Override
-//            public void addCorsMappings(CorsRegistry registry) {
-//                registry.addMapping("/**")
-//                        .allowedMethods("HEAD", "GET", "POST", "PUT", "DELETE");
-//            }
-//        };
-//    }
+    @Bean
+    public WebMvcConfigurer webMvcConfigurer() {
+        return new WebMvcConfigurerAdapter() {
+            @Override
+            public void addCorsMappings(CorsRegistry registry) {
+                registry.addMapping("/**")
+                        .allowedMethods("HEAD", "GET", "POST", "PUT", "DELETE");
+            }
+        };
+    }
 //    /**
 //     * 方法二：使用代码注册Servlet（不需要@ServletComponentScan注解）
 //     *

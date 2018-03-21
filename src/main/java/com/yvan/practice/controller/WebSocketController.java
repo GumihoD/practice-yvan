@@ -10,7 +10,7 @@ import org.springframework.web.servlet.ModelAndView;
 /**
  * Created by yvan on 2017/2/5.
  */
-@Controller//@RestController
+//@Controller//@RestController
 public class WebSocketController {
 
     @GetMapping(value = "/chat")
