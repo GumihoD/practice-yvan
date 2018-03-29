@@ -1,15 +1,10 @@
 .idea
-.idea/*
-.idea/workspace.xml
-.idea/vcs.xml
-.idea/uiDesigner.xml
-.idea/libraries
 *.iml
 
 .DS_Store
 src/main/java/com/yvan/practice/.DS_Store
 src/main/java/com/yvan/practice/configuration/.DS_Store
-src/main/java/com/yvan/practice/test/socket/
 src/main/resources/templates/.DS_Store
+src/main/java/com/yvan/practice/test/socket/
 src/main/webapp/dist/
 target/
