@@ -1,7 +1,8 @@
 package com.yvan.practice.service;
 
+import com.yvan.practice.controller.dto.BloodOxygenDto;
 import com.yvan.practice.entity.mysql.healthmonitor.BloodOxygen;
-import com.yvan.practice.reponsetory.HealthMonitorRepostory;
+import com.yvan.practice.repository.HealthMonitorRepostory;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Component;
 
@@ -17,8 +18,9 @@ public class HealthMonitorService {
         healthMonitorRepostory.save(bloodOxygen);
     }
 
-    public List<BloodOxygen> listFullwayBloodOxygen(String userId) {
-        List<BloodOxygen> result = healthMonitorRepostory.findByUserId(userId);
+    public List<BloodOxygen> listBloodOxygen(BloodOxygenDto bloodOxygenDto) {
+        List<BloodOxygen> result = healthMonitorRepostory.findByUserIdAndTestTimeBetween(bloodOxygenDto.getUserId(),
+                bloodOxygenDto.getBeginTime(), bloodOxygenDto.getEndTime());
         return result;
     }
 }

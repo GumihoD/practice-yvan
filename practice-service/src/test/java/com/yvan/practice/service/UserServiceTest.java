@@ -1,22 +1,17 @@
 package com.yvan.practice.service;
 
 import com.fasterxml.jackson.core.JsonProcessingException;
-import com.fasterxml.jackson.databind.JsonNode;
 import com.fasterxml.jackson.databind.ObjectMapper;
 import com.yvan.practice.PracticeYvanApplicationTests;
-import com.yvan.practice.dto.Data;
 import com.yvan.practice.entity.mysql.user.Gender;
 import com.yvan.practice.entity.mysql.user.User;
-import com.yvan.practice.reponsetory.UserRepostory;
-import com.yvan.practice.utils.CommonUtils;
-import org.hibernate.boot.model.source.spi.PluralAttributeElementSourceOneToMany;
+import com.yvan.practice.repository.UserRepostory;
 import org.junit.Test;
 import org.slf4j.Logger;
 import org.slf4j.LoggerFactory;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.data.redis.core.RedisTemplate;
 
-import java.io.IOException;
 import java.util.Date;
 import java.util.Iterator;
 import java.util.List;

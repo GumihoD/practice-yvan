@@ -3,7 +3,7 @@ package com.yvan.practice.service;
 import com.fasterxml.jackson.core.JsonProcessingException;
 import com.fasterxml.jackson.databind.ObjectMapper;
 import com.yvan.practice.entity.mysql.user.User;
-import com.yvan.practice.reponsetory.UserRepostory;
+import com.yvan.practice.repository.UserRepostory;
 import org.slf4j.Logger;
 import org.slf4j.LoggerFactory;
 import org.springframework.beans.BeanUtils;

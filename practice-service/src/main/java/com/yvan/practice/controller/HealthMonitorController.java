@@ -1,9 +1,11 @@
 package com.yvan.practice.controller;
 
 import com.fasterxml.jackson.databind.ObjectMapper;
+import com.yvan.practice.controller.dto.BloodOxygenDto;
 import com.yvan.practice.controller.request.AddBloodOxygenRequest;
+import com.yvan.practice.controller.request.QueryBloodOxygenRequest;
 import com.yvan.practice.controller.response.AddBloodOxygenResponse;
-import com.yvan.practice.dto.ControllerResult;
+import com.yvan.practice.controller.response.QueryBloodOxygenResponse;
 import com.yvan.practice.entity.mysql.healthmonitor.BloodOxygen;
 import com.yvan.practice.service.HealthMonitorService;
 import com.yvan.practice.service.MessageService;
@@ -12,10 +14,9 @@ import io.swagger.annotations.Api;
 import io.swagger.annotations.ApiOperation;
 import org.slf4j.Logger;
 import org.slf4j.LoggerFactory;
+import org.springframework.beans.BeanUtils;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.web.bind.annotation.*;
-
-import java.util.List;
 
 /**
  * Created by yvan on 16/7/20.
@@ -64,13 +65,15 @@ public class HealthMonitorController {
      *
      * @return
      */
-    @RequestMapping(value = "listFullwayBloodOxygen", method = RequestMethod.POST)
+    @RequestMapping(value = "queryBloodOxygen", method = RequestMethod.POST)
     @ResponseBody
-    @ApiOperation(value = "获取用户血氧信息", response = BloodOxygen.class)
-    public ControllerResult<?> listFullwayBloodOxygen(@RequestParam("userId") String userId) {
-        logger.info(userId);
-        List<BloodOxygen> bloodOxygenList = healthMonitorService.listFullwayBloodOxygen(userId);
-        return new ControllerResult<>().setRet_code(0).setRet_values(bloodOxygenList).setMessage("获取用户血氧信息成功");
+    @ApiOperation(value = "获取用户血氧信息", response = QueryBloodOxygenResponse.class)
+    public QueryBloodOxygenResponse queryBloodOxygen(@RequestBody QueryBloodOxygenRequest request) {
+        BloodOxygenDto target = new BloodOxygenDto();
+        BeanUtils.copyProperties(request, target);
+        QueryBloodOxygenResponse response = new QueryBloodOxygenResponse();
+        response.setBloodOxygenList(healthMonitorService.listBloodOxygen(target));
+        return response;
     }
 
 }

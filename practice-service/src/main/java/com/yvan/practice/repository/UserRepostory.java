@@ -1,4 +1,4 @@
-package com.yvan.practice.reponsetory;
+package com.yvan.practice.repository;
 
 import com.yvan.practice.entity.mysql.user.User;
 import org.springframework.data.jpa.repository.JpaRepository;
