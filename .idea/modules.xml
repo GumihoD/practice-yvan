@@ -2,8 +2,6 @@
 <project version="4">
   <component name="ProjectModuleManager">
     <modules>
-      <module fileurl="file://$PROJECT_DIR$/practice-facade/practice-facade.iml" filepath="$PROJECT_DIR$/practice-facade/practice-facade.iml" />
-      <module fileurl="file://$PROJECT_DIR$/practice-service/practice-service.iml" filepath="$PROJECT_DIR$/practice-service/practice-service.iml" />
       <module fileurl="file://$PROJECT_DIR$/practice-yvan.iml" filepath="$PROJECT_DIR$/practice-yvan.iml" />
     </modules>
   </component>
