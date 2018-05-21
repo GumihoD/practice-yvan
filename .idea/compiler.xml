@@ -2,16 +2,17 @@
 <project version="4">
   <component name="CompilerConfiguration">
     <annotationProcessing>
-      <profile name="Annotation profile for practice-yvan" enabled="true">
-        <sourceOutputDir name="../target/generated-sources/annotations" />
-        <sourceTestOutputDir name="../target/generated-test-sources/test-annotations" />
+      <profile name="Maven default annotation processors profile" enabled="true">
+        <sourceOutputDir name="target/generated-sources/annotations" />
+        <sourceTestOutputDir name="target/generated-test-sources/test-annotations" />
         <outputRelativeToContentRoot value="true" />
+        <module name="practice-yvan" />
       </profile>
     </annotationProcessing>
     <bytecodeTargetLevel>
       <module name="practice-facade" target="1.8" />
       <module name="practice-service" target="1.6" />
-      <module name="practice-yvan" target="1.6" />
+      <module name="practice-yvan" target="1.8" />
     </bytecodeTargetLevel>
   </component>
 </project>

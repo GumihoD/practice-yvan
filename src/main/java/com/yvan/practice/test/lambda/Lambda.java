@@ -1,7 +1,10 @@
 package com.yvan.practice.test.lambda;
 
+import com.google.common.collect.ComparisonChain;
 import java.io.File;
 import java.io.FileFilter;
+import java.util.Collections;
+import java.util.List;
 
 /**
  * Created by yvan on 2017/1/11.
@@ -17,6 +20,14 @@ public class Lambda {
             }
         };
         FileFilter fileFilter1 = (File f) -> f.isDirectory();
-//        File[]
     }
+
+
+    public void sortByComparisonChain(List<Integer> list){
+        Collections.sort(list, (a, b) -> ComparisonChain.start().compare(a, b).result());
+        for (Integer value : list) {
+            System.out.println(value);
+        }
+    }
+
 }
