@@ -25,7 +25,8 @@ public class TestForkJoinDemo {
 
     @Test
     public void testDemo() throws InterruptedException, ExecutionException {
-        ForkJoinPool forkJoinPool = new ForkJoinPool();//对线程池的扩展
+        //对线程池的扩展
+        ForkJoinPool forkJoinPool = new ForkJoinPool();
         Future<Integer> result = forkJoinPool.submit(new ForkJoinDemo(1, 10000));
         System.out.println(result.get());
         forkJoinPool.shutdown();
